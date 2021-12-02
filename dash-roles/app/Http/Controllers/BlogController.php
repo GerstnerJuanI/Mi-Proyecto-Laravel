@@ -12,7 +12,7 @@ class BlogController extends Controller
     {
         $this->middleware('permission:ver-blog|crear-blog|editar-blog|borrar-blog')->only('index');
         $this->middleware('permission:crear-blog',['only'=>['create','store']]);
-        $this->middleware('permission:editar-blog',['only'=>['index','update']]);
+        $this->middleware('permission:editar-blog',['only'=>['edit','update']]);
         $this->middleware('permission:borrar-blog',['only'=>['destroy']]);
     }
     /**
