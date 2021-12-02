@@ -10,10 +10,10 @@ class BlogController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-blog | crear-blog | editar-blog | borrar-blog',['only'=>['index']]);
+        $this->middleware('permission:ver-blog|crear-blog|editar-blog|borrar-blog')->only('index');
         $this->middleware('permission:crear-blog',['only'=>['create','store']]);
         $this->middleware('permission:editar-blog',['only'=>['index','update']]);
-        $this->middleware('permission:crear-blog',['only'=>['destroy']]);
+        $this->middleware('permission:borrar-blog',['only'=>['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -81,7 +81,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $blog)
+    public function update(Request $request,Blog $blog)
     {
         request()->validate([
             'titulo' => 'required',

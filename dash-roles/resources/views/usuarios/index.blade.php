@@ -37,12 +37,19 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{route('suuarios.edit,$usuario->id')}}" class="btn btn-info">Editar</a>
+                                                <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-info">Editar</a>
+                                                {!! Form::open(['method'=> 'DELETE','route' => ['usuarios.destroy',$usuario->id], 'style' => 'display:inline']) !!}
+                                                {!! Form::submit('Borrar',['class'=> 'btn btn-danger']) !!}
+                                                {!! Form::close() !!}
+
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="pagination jsutify-content-end">
+                                {!! $usuarios->links() !!}
+                            </div>
                         </div>
                     </div>
                 </div>
