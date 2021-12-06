@@ -53,6 +53,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-4 col-xl-4">
+                                        <div class="card bg-c-orange order-card">
+                                            <div class="card-block">
+                                                <h5>Articulos</h5>                                               
+                                                @php
+                                                    use App\Models\Articulo;
+                                                    $cant_articulos = Articulo::count();                                                
+                                                @endphp
+                                                <h2 class="text-right"><i class="fab fa-angular f-left"></i><span>{{$cant_articulos}}</span></h2>
+                                                <p class="m-b-0 text-right"><a href="/articulos" class="text-white">Ver más</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>                        
                         </div>
                     </div>
